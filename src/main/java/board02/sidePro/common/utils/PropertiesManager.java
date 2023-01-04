@@ -1,6 +1,6 @@
-package board02.sidePro.common;
+package board02.sidePro.common.utils;
 
-import board02.sidePro.dto.FilePathDto;
+import board02.sidePro.dto.utils.FilePathDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
@@ -31,4 +31,6 @@ public class PropertiesManager {
     public void setMvc(Map<String, FilePathDto> mvc){
         this.mvc = mvc;
     }
+
+
 }

@@ -1,6 +1,8 @@
 package board02.sidePro.controller;
 
-import board02.sidePro.common.PropertiesManager;
+import board02.sidePro.common.utils.PropertiesManager;
+import board02.sidePro.dto.utils.FilePathDto;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -36,7 +38,11 @@ public class MainController {
 
     @PostConstruct
     void init(){
-        prefix = propertiesManager.getMvc().get("view").getPrefix();
-        suffix = propertiesManager.getMvc().get("view").getSuffix();
+        ObjectMapper objectMapper = new ObjectMapper();
+        FilePathDto path = objectMapper.convertValue(propertiesManager.getMvc().get("view"), FilePathDto.class);
+
+        prefix = path.getPrefix();
+        suffix = path.getSuffix();
     }
+
 }
